@@ -6,13 +6,26 @@ from django.db.models import Q
 # Create your views here.
 
 def index(request):
-    #return HttpResponse('heyyyyy how you doin!!!! shoppppppppppp')
+    # return HttpResponse('heyyyyy how you doin!!!! shoppppppppppp')
     products = Product.objects.all()
     print(products)
     n = len(products)
-    nSlides = n//4 + ceil((n/4)-(n//4))
-    params = {'no_of_slides':nSlides, 'range': range(1,nSlides),'product': products}
-    return render(request, 'shop/index.html', params)
+    nSlides = n // 4 + ceil((n / 4) - (n // 4))
+    allProds=[[products,range(1,nSlides),nSlides],[products,range(1,nSlides),nSlides]]
+    params={"allProds":allProds}
+    #params = {'no_of_slides': nSlides, 'range': range(1, nSlides), 'product': products}
+    return render(request, 'shop/indextest.html', params)
+
+def test(request):
+    # return HttpResponse('heyyyyy how you doin!!!! shoppppppppppp')
+    products = Product.objects.all()
+    print(products)
+    n = len(products)
+    nSlides = n // 4 + ceil((n / 4) - (n // 4))
+    allProds=[[products,range(1,nSlides),nSlides],[products,range(1,nSlides),nSlides]]
+    params={"allProds":allProds}
+    #params = {'no_of_slides': nSlides, 'range': range(1, nSlides), 'product': products}
+    return render(request, 'shop/indextest.html', params)
 
 def about(request):
     return render(request,'shop/about.html')
