@@ -13,6 +13,7 @@ def index(request):
 
     allProds = []
     catprods = Product.objects.values('category', 'id')
+    print(catprods)
     cats = {item['category'] for item in catprods}
     for cat in cats:
         prod = Product.objects.filter(category=cat)
