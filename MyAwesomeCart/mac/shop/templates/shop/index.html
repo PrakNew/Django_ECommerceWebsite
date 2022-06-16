@@ -124,7 +124,7 @@
     document.getElementById('cart').innerHTML = Object.keys(cart).length;
     console.log(cart);
   }
-  // If plus or minus button is clicked, change the cart as well as the display value
+  // Iff plus or minus button is clicked, change the cart as well as the display value
   $('.divpr').on("click", "button.minus", function () {
     a = this.id.slice(7,);
     cart['pr' + a] = cart['pr' + a] - 1;
