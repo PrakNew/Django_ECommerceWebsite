@@ -38,3 +38,5 @@ class Orders(models.Model):
     state = models.CharField(max_length=111)
     zip_code = models.CharField(max_length=111)
     phone = models.CharField(max_length=111, default="")
+    class Meta:# Meta is the inner class in the models which helps in changing the behavior of the class 
+        verbose_name_plural='Orders'
